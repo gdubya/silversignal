@@ -15,6 +15,23 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Lever Du? - Trygghet for deg og dine",
   description: "En enkel tjeneste som sikrer at dine eldre har det bra, hver dag.",
+  metadataBase: new URL('https://leverdu.no'),
+  alternates: {
+    canonical: '/',
+  },
+  openGraph: {
+    title: 'Lever Du? - Trygghet for deg og dine',
+    description: 'En enkel tjeneste som sikrer at dine eldre har det bra, hver dag.',
+    url: 'https://leverdu.no',
+    siteName: 'Lever Du?',
+    locale: 'nb_NO',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Lever Du? - Trygghet for deg og dine',
+    description: 'En enkel tjeneste som sikrer at dine eldre har det bra, hver dag.',
+  },
 };
 
 export default function RootLayout({
@@ -23,7 +40,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="no">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
