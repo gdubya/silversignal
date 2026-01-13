@@ -1,65 +1,197 @@
-import Image from "next/image";
+'use client';
+
+import { useState } from 'react';
 
 export default function Home() {
+  const [email, setEmail] = useState('');
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [message, setMessage] = useState('');
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email) return;
+
+    setStatus('loading');
+    setMessage('');
+
+    try {
+      const res = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email }),
+      });
+
+      const data = await res.json();
+
+      if (res.ok) {
+        setStatus('success');
+        setEmail('');
+      } else {
+        setStatus('error');
+        setMessage(data.error || 'Noe gikk galt. Prøv igjen.');
+      }
+    } catch (error) {
+      setStatus('error');
+      setMessage('Kunne ikke koble til serveren.');
+    }
+  };
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <div className="min-h-screen bg-stone-50 text-stone-900 font-sans">
+      {/* Header */}
+      <header className="w-full py-6 px-4 sm:px-8 border-b border-stone-200 bg-white">
+        <div className="max-w-5xl mx-auto flex justify-between items-center">
+          <div className="text-2xl font-bold text-red-700 tracking-tight">Lever Du?</div>
+          <nav>
+            <a href="#signup" className="text-sm font-semibold text-stone-600 hover:text-red-700 transition-colors">
+              Hold meg oppdatert
+            </a>
+          </nav>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+      </header>
+
+      <main>
+        {/* Hero Section */}
+        <section className="py-20 px-4 sm:px-8 bg-white">
+          <div className="max-w-4xl mx-auto text-center">
+            <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight text-stone-900 mb-6">
+              Er alt bra med dine kjære i dag?
+            </h1>
+            <p className="text-xl sm:text-2xl text-stone-600 mb-10 max-w-2xl mx-auto leading-relaxed">
+              Vi gir deg trygghet i hverdagen. En automatisk daglig sjekk som sier ifra til deg hvis noe er galt.
+            </p>
+            <a 
+              href="#signup" 
+              className="inline-block bg-red-700 text-white font-bold py-4 px-8 rounded-full text-lg hover:bg-red-800 transition-colors shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+            >
+              Få beskjed når vi lanserer
+            </a>
+          </div>
+        </section>
+
+        {/* How it works */}
+        <section className="py-20 px-4 sm:px-8 bg-stone-100">
+          <div className="max-w-5xl mx-auto">
+            <h2 className="text-3xl font-bold text-center mb-16 text-stone-800">Slik fungerer Lever Du?</h2>
+            
+            <div className="grid md:grid-cols-3 gap-12">
+              <div className="flex flex-col items-center text-center">
+                <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center text-2xl mb-6 shadow-sm border border-stone-200">
+                  📩
+                </div>
+                <h3 className="text-xl font-bold mb-3">1. Daglig innsjekk</h3>
+                <p className="text-stone-600 leading-relaxed">
+                  Den eldre mottar en SMS eller e-post til et fast tidspunkt hver dag.
+                </p>
+              </div>
+
+              <div className="flex flex-col items-center text-center">
+                <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center text-2xl mb-6 shadow-sm border border-stone-200">
+                  ✅
+                </div>
+                <h3 className="text-xl font-bold mb-3">2. Enkel bekreftelse</h3>
+                <p className="text-stone-600 leading-relaxed">
+                  Med ett enkelt klikk bekrefter de at alt står bra til. Ingen innlogging kreves.
+                </p>
+              </div>
+
+              <div className="flex flex-col items-center text-center">
+                <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center text-2xl mb-6 shadow-sm border border-stone-200">
+                  🚨
+                </div>
+                <h3 className="text-xl font-bold mb-3">3. Varsling ved behov</h3>
+                <p className="text-stone-600 leading-relaxed">
+                  Hvis de glemmer å sjekke inn, varsler vi deg som pårørende umiddelbart.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Value Props */}
+        <section className="py-20 px-4 sm:px-8 bg-white">
+          <div className="max-w-4xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              <div>
+                <h2 className="text-3xl font-bold mb-6 text-stone-900">Hvorfor bruke Lever Du?</h2>
+                <ul className="space-y-4">
+                  <li className="flex items-start">
+                    <span className="text-green-500 mr-3 text-xl">✓</span>
+                    <span className="text-lg text-stone-700">Enkelhet først – designet for eldre.</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-green-500 mr-3 text-xl">✓</span>
+                    <span className="text-lg text-stone-700">Ingen overvåkning, kun bekreftelse.</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-green-500 mr-3 text-xl">✓</span>
+                    <span className="text-lg text-stone-700">Trygghet for pårørende som bor langt unna.</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-green-500 mr-3 text-xl">✓</span>
+                    <span className="text-lg text-stone-700">Rimelig forsikring for sjelero.</span>
+                  </li>
+                </ul>
+              </div>
+              <div className="bg-stone-50 p-8 rounded-2xl border border-stone-100 shadow-inner">
+                <blockquote className="text-xl italic text-stone-600 mb-4">
+                  "Jeg var alltid bekymret når mor ikke tok telefonen. Nå vet jeg at jeg får beskjed hvis noe er galt."
+                </blockquote>
+                <cite className="font-semibold text-stone-800 not-italic">— Kari, pårørende</cite>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Sign-up Section */}
+        <section id="signup" className="py-24 px-4 sm:px-8 bg-stone-900 text-stone-50">
+          <div className="max-w-xl mx-auto text-center">
+            <h2 className="text-3xl sm:text-4xl font-bold mb-6">Kommer snart</h2>
+            <p className="text-lg text-stone-300 mb-10">
+              Vi jobber hardt med å ferdigstille tjenesten. Registrer e-posten din for å få beskjed når vi åpner for nye brukere.
+            </p>
+            
+            {status === 'success' ? (
+              <div className="bg-green-600/20 border border-green-500 text-green-100 p-6 rounded-lg">
+                <p className="text-xl font-medium">Takk for interessen! Vi holder deg oppdatert.</p>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3">
+                <input
+                  type="email"
+                  placeholder="Din e-postadresse"
+                  required
+                  className="flex-grow px-5 py-4 rounded-lg text-black bg-white focus:outline-none focus:ring-2 focus:ring-red-500 disabled:opacity-50"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  disabled={status === 'loading'}
+                />
+                <button 
+                  type="submit" 
+                  className="bg-red-600 hover:bg-red-500 text-white font-bold py-4 px-8 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                  disabled={status === 'loading'}
+                >
+                  {status === 'loading' ? 'Sender...' : 'Hold meg oppdatert'}
+                </button>
+              </form>
+            )}
+            {status === 'error' && (
+              <p className="mt-4 text-red-400 font-medium">{message}</p>
+            )}
+            <p className="mt-6 text-sm text-stone-500">
+              Vi sender ikke spam, kun oppdateringer om lansering.
+            </p>
+          </div>
+        </section>
       </main>
+
+      <footer className="bg-stone-950 text-stone-500 py-12 text-center">
+        <div className="max-w-5xl mx-auto px-4">
+          <p className="mb-4">&copy; {new Date().getFullYear()} Lever Du? Alle rettigheter reservert.</p>
+        </div>
+      </footer>
     </div>
   );
 }
