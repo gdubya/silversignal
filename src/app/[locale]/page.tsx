@@ -2,6 +2,7 @@
 
 import { useTranslations } from 'next-intl';
 import { useState } from 'react';
+import LanguageSwitcher from '@/components/LanguageSwitcher';
 
 export default function Home() {
   const t = useTranslations('Page');
@@ -46,10 +47,11 @@ export default function Home() {
       <header className="w-full py-6 px-4 sm:px-8 border-b border-stone-200 bg-white">
         <div className="max-w-5xl mx-auto flex justify-between items-center">
           <div className="text-2xl font-bold text-red-700 tracking-tight">{t('title')}</div>
-          <nav>
+          <nav className="flex items-center gap-6">
             <a href="#signup" className="text-sm font-semibold text-stone-600 hover:text-red-700 transition-colors">
               {t('keepMeUpdated')}
             </a>
+            <LanguageSwitcher />
           </nav>
         </div>
       </header>
