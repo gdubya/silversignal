@@ -1,0 +1,32 @@
+{
+  "Page": {
+    "title": "Lever Du?",
+    "heroTitle": "Is everything okay with your loved ones today?",
+    "heroSubtitle": "We give you peace of mind in your everyday life. An automatic daily check that notifies you if something is wrong.",
+    "getNotified": "Get notified when we launch",
+    "howItWorks": "How Lever Du? works",
+    "dailyCheckIn": "1. Daily check-in",
+    "dailyCheckInDescription": "The elderly person receives an SMS or email at a fixed time every day.",
+    "simpleConfirmation": "2. Simple confirmation",
+    "simpleConfirmationDescription": "With a single click, they confirm that everything is fine. No login required.",
+    "notificationWhenNeeded": "3. Notification when needed",
+    "notificationWhenNeededDescription": "If they forget to check in, we will notify you as a relative immediately.",
+    "whyUse": "Why use Lever Du?",
+    "whyUseItem1": "Simplicity first - designed for the elderly.",
+    "whyUseItem2": "No monitoring, just confirmation.",
+    "whyUseItem3": "Peace of mind for relatives who live far away.",
+    "whyUseItem4": "Affordable insurance for peace of mind.",
+    "testimonial": "\"I was always worried when mom didn't answer the phone. Now I know I'll be notified if something is wrong.\"",
+    "testimonialAuthor": "- Kari, relative",
+    "comingSoon": "Coming soon",
+    "comingSoonSubtitle": "We are working hard to finalize the service. Register your email to be notified when we open for new users.",
+    "yourEmail": "Your email address",
+    "keepMeUpdated": "Keep me updated",
+    "sending": "Sending...",
+    "thankYou": "Thanks for your interest! We'll keep you updated.",
+    "noSpam": "We don't send spam, only updates about the launch.",
+    "copyright": "© {year} Lever Du? All rights reserved.",
+    "errorGeneric": "Something went wrong. Please try again.",
+    "errorConnection": "Could not connect to the server."
+  }
+}

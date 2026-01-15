@@ -1,0 +1,32 @@
+{
+  "Page": {
+    "title": "Lever Du?",
+    "heroTitle": "Er alt bra med dine kjære i dag?",
+    "heroSubtitle": "Vi gir deg trygghet i hverdagen. En automatisk daglig sjekk som sier ifra til deg hvis noe er galt.",
+    "getNotified": "Få beskjed når vi lanserer",
+    "howItWorks": "Slik fungerer Lever Du?",
+    "dailyCheckIn": "1. Daglig innsjekk",
+    "dailyCheckInDescription": "Den eldre mottar en SMS eller e-post til et fast tidspunkt hver dag.",
+    "simpleConfirmation": "2. Enkel bekreftelse",
+    "simpleConfirmationDescription": "Med ett enkelt klikk bekrefter de at alt står bra til. Ingen innlogging kreves.",
+    "notificationWhenNeeded": "3. Varsling ved behov",
+    "notificationWhenNeededDescription": "Hvis de glemmer å sjekke inn, varsler vi deg som pårørende umiddelbart.",
+    "whyUse": "Hvorfor bruke Lever Du?",
+    "whyUseItem1": "Enkelhet først – designet for eldre.",
+    "whyUseItem2": "Ingen overvåkning, kun bekreftelse.",
+    "whyUseItem3": "Trygghet for pårørende som bor langt unna.",
+    "whyUseItem4": "Rimelig forsikring for sjelero.",
+    "testimonial": "\"Jeg var alltid bekymret når mor ikke tok telefonen. Nå vet jeg at jeg får beskjed hvis noe er galt.\"",
+    "testimonialAuthor": "— Kari, pårørende",
+    "comingSoon": "Kommer snart",
+    "comingSoonSubtitle": "Vi jobber hardt med å ferdigstille tjenesten. Registrer e-posten din for å få beskjed når vi åpner for nye brukere.",
+    "yourEmail": "Din e-postadresse",
+    "keepMeUpdated": "Hold meg oppdatert",
+    "sending": "Sender...",
+    "thankYou": "Takk for interessen! Vi holder deg oppdatert.",
+    "noSpam": "Vi sender ikke spam, kun oppdateringer om lansering.",
+    "copyright": "© {year} Lever Du? Alle rettigheter reservert.",
+    "errorGeneric": "Noe gikk galt. Prøv igjen.",
+    "errorConnection": "Kunne ikke koble til serveren."
+  }
+}
