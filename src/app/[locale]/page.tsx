@@ -1,8 +1,10 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
 import { useState } from 'react';
 
 export default function Home() {
+  const t = useTranslations('Page');
   const [email, setEmail] = useState('');
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const [message, setMessage] = useState('');
@@ -30,11 +32,11 @@ export default function Home() {
         setEmail('');
       } else {
         setStatus('error');
-        setMessage(data.error || 'Noe gikk galt. Prøv igjen.');
+        setMessage(data.error || t('errorGeneric'));
       }
     } catch (error) {
       setStatus('error');
-      setMessage('Kunne ikke koble til serveren.');
+      setMessage(t('errorConnection'));
     }
   };
 
@@ -43,10 +45,10 @@ export default function Home() {
       {/* Header */}
       <header className="w-full py-6 px-4 sm:px-8 border-b border-stone-200 bg-white">
         <div className="max-w-5xl mx-auto flex justify-between items-center">
-          <div className="text-2xl font-bold text-red-700 tracking-tight">Lever Du?</div>
+          <div className="text-2xl font-bold text-red-700 tracking-tight">{t('title')}</div>
           <nav>
             <a href="#signup" className="text-sm font-semibold text-stone-600 hover:text-red-700 transition-colors">
-              Hold meg oppdatert
+              {t('keepMeUpdated')}
             </a>
           </nav>
         </div>
@@ -57,16 +59,16 @@ export default function Home() {
         <section className="py-20 px-4 sm:px-8 bg-white">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight text-stone-900 mb-6">
-              Er alt bra med dine kjære i dag?
+              {t('heroTitle')}
             </h1>
             <p className="text-xl sm:text-2xl text-stone-600 mb-10 max-w-2xl mx-auto leading-relaxed">
-              Vi gir deg trygghet i hverdagen. En automatisk daglig sjekk som sier ifra til deg hvis noe er galt.
+              {t('heroSubtitle')}
             </p>
             <a 
               href="#signup" 
               className="inline-block bg-red-700 text-white font-bold py-4 px-8 rounded-full text-lg hover:bg-red-800 transition-colors shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
             >
-              Få beskjed når vi lanserer
+              {t('getNotified')}
             </a>
           </div>
         </section>
@@ -74,16 +76,16 @@ export default function Home() {
         {/* How it works */}
         <section className="py-20 px-4 sm:px-8 bg-stone-100">
           <div className="max-w-5xl mx-auto">
-            <h2 className="text-3xl font-bold text-center mb-16 text-stone-800">Slik fungerer Lever Du?</h2>
+            <h2 className="text-3xl font-bold text-center mb-16 text-stone-800">{t('howItWorks')}</h2>
             
             <div className="grid md:grid-cols-3 gap-12">
               <div className="flex flex-col items-center text-center">
                 <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center text-2xl mb-6 shadow-sm border border-stone-200">
                   📩
                 </div>
-                <h3 className="text-xl font-bold mb-3">1. Daglig innsjekk</h3>
+                <h3 className="text-xl font-bold mb-3">{t('dailyCheckIn')}</h3>
                 <p className="text-stone-600 leading-relaxed">
-                  Den eldre mottar en SMS eller e-post til et fast tidspunkt hver dag.
+                  {t('dailyCheckInDescription')}
                 </p>
               </div>
 
@@ -91,9 +93,9 @@ export default function Home() {
                 <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center text-2xl mb-6 shadow-sm border border-stone-200">
                   ✅
                 </div>
-                <h3 className="text-xl font-bold mb-3">2. Enkel bekreftelse</h3>
+                <h3 className="text-xl font-bold mb-3">{t('simpleConfirmation')}</h3>
                 <p className="text-stone-600 leading-relaxed">
-                  Med ett enkelt klikk bekrefter de at alt står bra til. Ingen innlogging kreves.
+                  {t('simpleConfirmationDescription')}
                 </p>
               </div>
 
@@ -101,9 +103,9 @@ export default function Home() {
                 <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center text-2xl mb-6 shadow-sm border border-stone-200">
                   🚨
                 </div>
-                <h3 className="text-xl font-bold mb-3">3. Varsling ved behov</h3>
+                <h3 className="text-xl font-bold mb-3">{t('notificationWhenNeeded')}</h3>
                 <p className="text-stone-600 leading-relaxed">
-                  Hvis de glemmer å sjekke inn, varsler vi deg som pårørende umiddelbart.
+                  {t('notificationWhenNeededDescription')}
                 </p>
               </div>
             </div>
@@ -115,31 +117,31 @@ export default function Home() {
           <div className="max-w-4xl mx-auto">
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div>
-                <h2 className="text-3xl font-bold mb-6 text-stone-900">Hvorfor bruke Lever Du?</h2>
+                <h2 className="text-3xl font-bold mb-6 text-stone-900">{t('whyUse')}</h2>
                 <ul className="space-y-4">
                   <li className="flex items-start">
                     <span className="text-green-500 mr-3 text-xl">✓</span>
-                    <span className="text-lg text-stone-700">Enkelhet først – designet for eldre.</span>
+                    <span className="text-lg text-stone-700">{t('whyUseItem1')}</span>
                   </li>
                   <li className="flex items-start">
                     <span className="text-green-500 mr-3 text-xl">✓</span>
-                    <span className="text-lg text-stone-700">Ingen overvåkning, kun bekreftelse.</span>
+                    <span className="text-lg text-stone-700">{t('whyUseItem2')}</span>
                   </li>
                   <li className="flex items-start">
                     <span className="text-green-500 mr-3 text-xl">✓</span>
-                    <span className="text-lg text-stone-700">Trygghet for pårørende som bor langt unna.</span>
+                    <span className="text-lg text-stone-700">{t('whyUseItem3')}</span>
                   </li>
                   <li className="flex items-start">
                     <span className="text-green-500 mr-3 text-xl">✓</span>
-                    <span className="text-lg text-stone-700">Rimelig forsikring for sjelero.</span>
+                    <span className="text-lg text-stone-700">{t('whyUseItem4')}</span>
                   </li>
                 </ul>
               </div>
               <div className="bg-stone-50 p-8 rounded-2xl border border-stone-100 shadow-inner">
                 <blockquote className="text-xl italic text-stone-600 mb-4">
-                  "Jeg var alltid bekymret når mor ikke tok telefonen. Nå vet jeg at jeg får beskjed hvis noe er galt."
+                  {t('testimonial')}
                 </blockquote>
-                <cite className="font-semibold text-stone-800 not-italic">— Kari, pårørende</cite>
+                <cite className="font-semibold text-stone-800 not-italic">{t('testimonialAuthor')}</cite>
               </div>
             </div>
           </div>
@@ -148,20 +150,20 @@ export default function Home() {
         {/* Sign-up Section */}
         <section id="signup" className="py-24 px-4 sm:px-8 bg-stone-900 text-stone-50">
           <div className="max-w-xl mx-auto text-center">
-            <h2 className="text-3xl sm:text-4xl font-bold mb-6">Kommer snart</h2>
+            <h2 className="text-3xl sm:text-4xl font-bold mb-6">{t('comingSoon')}</h2>
             <p className="text-lg text-stone-300 mb-10">
-              Vi jobber hardt med å ferdigstille tjenesten. Registrer e-posten din for å få beskjed når vi åpner for nye brukere.
+              {t('comingSoonSubtitle')}
             </p>
             
             {status === 'success' ? (
               <div className="bg-green-600/20 border border-green-500 text-green-100 p-6 rounded-lg">
-                <p className="text-xl font-medium">Takk for interessen! Vi holder deg oppdatert.</p>
+                <p className="text-xl font-medium">{t('thankYou')}</p>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3">
                 <input
                   type="email"
-                  placeholder="Din e-postadresse"
+                  placeholder={t('yourEmail')}
                   required
                   className="flex-grow px-5 py-4 rounded-lg text-black bg-white focus:outline-none focus:ring-2 focus:ring-red-500 disabled:opacity-50"
                   value={email}
@@ -173,7 +175,7 @@ export default function Home() {
                   className="bg-red-600 hover:bg-red-500 text-white font-bold py-4 px-8 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                   disabled={status === 'loading'}
                 >
-                  {status === 'loading' ? 'Sender...' : 'Hold meg oppdatert'}
+                  {status === 'loading' ? t('sending') : t('keepMeUpdated')}
                 </button>
               </form>
             )}
@@ -181,7 +183,7 @@ export default function Home() {
               <p className="mt-4 text-red-400 font-medium">{message}</p>
             )}
             <p className="mt-6 text-sm text-stone-500">
-              Vi sender ikke spam, kun oppdateringer om lansering.
+              {t('noSpam')}
             </p>
           </div>
         </section>
@@ -189,7 +191,7 @@ export default function Home() {
 
       <footer className="bg-stone-950 text-stone-500 py-12 text-center">
         <div className="max-w-5xl mx-auto px-4">
-          <p className="mb-4">&copy; {new Date().getFullYear()} Lever Du? Alle rettigheter reservert.</p>
+          <p className="mb-4">{t('copyright', {year: new Date().getFullYear()})}</p>
         </div>
       </footer>
     </div>
