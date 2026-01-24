@@ -194,8 +194,10 @@ export default function Home() {
 
       <footer className="bg-stone-950 text-stone-500 py-12 text-center">
         <div className="max-w-5xl mx-auto px-4">
-          <div className="mb-8">
-             <Link href="/faq" className="text-stone-400 hover:text-stone-300 mx-2 transition-colors">FAQ</Link>
+          <div className="mb-8 flex justify-center gap-4">
+             <Link href="/faq" className="text-stone-400 hover:text-stone-300 transition-colors">FAQ</Link>
+             <span className="text-stone-800">|</span>
+             <a href="mailto:hei@leverdu.no" className="text-stone-400 hover:text-stone-300 transition-colors">{t('contactUs')}</a>
           </div>
           <p className="mb-4">{t('copyright', {year: new Date().getFullYear()})}</p>
         </div>

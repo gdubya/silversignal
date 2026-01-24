@@ -25,6 +25,7 @@
     "sending": "Sender...",
     "thankYou": "Takk for interessen! Vi holder deg oppdatert.",
     "noSpam": "Vi sender ikke spam, kun oppdateringer om lansering.",
+    "contactUs": "Ta kontakt",
     "copyright": "© {year} Lever Du? Alle rettigheter reservert.",
     "errorGeneric": "Noe gikk galt. Prøv igjen.",
     "errorConnection": "Kunne ikke koble til serveren."
@@ -39,6 +40,8 @@
     "a3": "Nei, det er designet for å være ekstremt enkelt. Ingen innlogging, bare ett klikk.",
     "q4": "Hva skjer hvis de glemmer å klikke?",
     "a4": "Vi sender en påminnelse. Hvis det fortsatt ikke er noe svar, varsler vi kontaktpersonen.",
+    "contactUs": "Kontakt oss",
+    "copyright": "© {year} Lever Du? Alle rettigheter reservert.",
     "backHome": "Tilbake til forsiden"
   }
 }

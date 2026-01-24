@@ -25,6 +25,7 @@
     "sending": "Sending...",
     "thankYou": "Thanks for your interest! We'll keep you updated.",
     "noSpam": "We don't send spam, only updates about the launch.",
+    "contactUs": "Contact us",
     "copyright": "© {year} Lever Du? All rights reserved.",
     "errorGeneric": "Something went wrong. Please try again.",
     "errorConnection": "Could not connect to the server."
@@ -39,6 +40,8 @@
     "a3": "No, it is designed to be extremely simple. No login, just one click.",
     "q4": "What happens if they forget to click?",
     "a4": "We will send a reminder. If still no response, we notify the contact person.",
+    "contactUs": "Contact us",
+    "copyright": "© {year} Lever Du? All rights reserved.",
     "backHome": "Back to Home"
   }
 }
