@@ -28,5 +28,17 @@
     "copyright": "© {year} Lever Du? All rights reserved.",
     "errorGeneric": "Something went wrong. Please try again.",
     "errorConnection": "Could not connect to the server."
+  },
+  "Faq": {
+    "title": "Frequently Asked Questions",
+    "q1": "How does it work?",
+    "a1": "We send a daily message (SMS/Email). The user clicks a link to confirm they are okay. If not, we notify the relatives.",
+    "q2": "How much does it cost?",
+    "a2": "Basic usage will be free (one monitor and simple alerting). Other features and pricing will be announced in the future.",
+    "q3": "Is it complicated for the elderly?",
+    "a3": "No, it is designed to be extremely simple. No login, just one click.",
+    "q4": "What happens if they forget to click?",
+    "a4": "We will send a reminder. If still no response, we notify the contact person.",
+    "backHome": "Back to Home"
   }
 }

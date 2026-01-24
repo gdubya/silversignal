@@ -3,6 +3,7 @@
 import { useTranslations } from 'next-intl';
 import { useState } from 'react';
 import LanguageSwitcher from '@/components/LanguageSwitcher';
+import { Link } from '@/i18n/routing';
 
 export default function Home() {
   const t = useTranslations('Page');
@@ -35,7 +36,7 @@ export default function Home() {
         setStatus('error');
         setMessage(data.error || t('errorGeneric'));
       }
-    } catch (error) {
+    } catch (_error) {
       setStatus('error');
       setMessage(t('errorConnection'));
     }
@@ -193,6 +194,9 @@ export default function Home() {
 
       <footer className="bg-stone-950 text-stone-500 py-12 text-center">
         <div className="max-w-5xl mx-auto px-4">
+          <div className="mb-8">
+             <Link href="/faq" className="text-stone-400 hover:text-stone-300 mx-2 transition-colors">FAQ</Link>
+          </div>
           <p className="mb-4">{t('copyright', {year: new Date().getFullYear()})}</p>
         </div>
       </footer>
