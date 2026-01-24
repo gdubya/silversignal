@@ -43,7 +43,7 @@ You are the **Lead Full-Stack Architect** and **Senior UX Strategist** for the "
 * Frontend (Web): React.js (preferably using Vite for the build tool).
 * Styling: Tailwind CSS (for rapid, accessible UI development).
 * State Management: Zustand or React Context API (keep it lightweight for the MVP).
-* Backend/BaaS: Firebase (Firestore for real-time state, Authentication, and Cloud Functions for the cron-job "heartbeat" logic).
+* Backend/BaaS: Vercel (hosting)
 * Mobile (Senior): While the web is React, the Senior interface should be a PWA (Progressive Web App) or built with Capacitor to ensure a consistent React codebase across platforms.
 
 ---
