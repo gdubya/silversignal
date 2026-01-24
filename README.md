@@ -1,3 +1,19 @@
+Project Name: Lever du? (Norwegian for "Are you alive?" / "Are you there?")
+Tagline: A low-friction safety net for independent seniors and their families.
+Market: Norway (Primary).
+Core Concept: A daily digital "heartbeat." A senior user must tap a single button once a day within a pre-defined window. If they fail to do so, the system triggers an escalation sequence to notify their designated emergency contacts (caregivers).
+​2. Target Audience
+​The Senior (70+): Lives alone, values independence, may be tech-literate but prefers extreme simplicity and high-visibility interfaces.
+​The Caregiver (40-65): The adult child of the senior. Experiences "check-in anxiety" and manages the subscription and settings.
+​3. Core Logic & Escalation Workflow
+​The "Engine" of the app follows a strict time-based logic:
+​The Window: A period defined by the Caregiver (e.g., 08:00 - 10:00).
+​The Check-in: The Senior taps "Jeg er her!" (I'm here) in the app.
+​The Nudge (Intermediate): If no check-in occurs by 30 minutes before the window ends, the Senior receives a high-volume notification/sound.
+​The Alert (Escalation): If the window closes with no check-in, the system immediately notifies the Caregiver via Push Notification, SMS, and Email.
+
+## Technical readme
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
