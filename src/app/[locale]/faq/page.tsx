@@ -47,6 +47,21 @@ export default function Faq() {
               <h2 className="text-2xl font-bold mb-4 text-stone-800">{t('q4')}</h2>
               <p className="text-lg text-stone-600 leading-relaxed">{t('a4')}</p>
             </div>
+
+            <div>
+              <h2 className="text-2xl font-bold mb-4 text-stone-800">{t('q5')}</h2>
+              <p className="text-lg text-stone-600 leading-relaxed">{t('a5')}</p>
+            </div>
+
+            <div>
+              <h2 className="text-2xl font-bold mb-4 text-stone-800">{t('q6')}</h2>
+              <p className="text-lg text-stone-600 leading-relaxed">{t('a6')}</p>
+            </div>
+
+            <div>
+              <h2 className="text-2xl font-bold mb-4 text-stone-800">{t('q7')}</h2>
+              <p className="text-lg text-stone-600 leading-relaxed">{t('a7')}</p>
+            </div>
           </div>
           
           <div className="mt-16 text-center">
