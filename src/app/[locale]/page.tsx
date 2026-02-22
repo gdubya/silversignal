@@ -84,7 +84,7 @@ export default function Home() {
             <div className="grid md:grid-cols-3 gap-12">
               <div className="flex flex-col items-center text-center">
                 <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center text-2xl mb-6 shadow-sm border border-stone-200">
-                  📩
+                  👋
                 </div>
                 <h3 className="text-xl font-bold mb-3">{t('dailyCheckIn')}</h3>
                 <p className="text-stone-600 leading-relaxed">
@@ -94,7 +94,7 @@ export default function Home() {
 
               <div className="flex flex-col items-center text-center">
                 <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center text-2xl mb-6 shadow-sm border border-stone-200">
-                  ✅
+                  🤖
                 </div>
                 <h3 className="text-xl font-bold mb-3">{t('simpleConfirmation')}</h3>
                 <p className="text-stone-600 leading-relaxed">
@@ -104,7 +104,7 @@ export default function Home() {
 
               <div className="flex flex-col items-center text-center">
                 <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center text-2xl mb-6 shadow-sm border border-stone-200">
-                  🚨
+                  🛡️
                 </div>
                 <h3 className="text-xl font-bold mb-3">{t('notificationWhenNeeded')}</h3>
                 <p className="text-stone-600 leading-relaxed">
