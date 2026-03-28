@@ -12,3 +12,42 @@ model Subscriber {
   email     String   @unique
   createdAt DateTime @default(now())
 }
+
+enum Role {
+  CAREGIVER
+  SENIOR
+}
+
+enum CheckInStatus {
+  PENDING
+  CHECKED_IN
+  MISSED
+}
+
+model User {
+  id        String   @id @default(uuid())
+  email     String   @unique
+  name      String?
+  role      Role     @default(CAREGIVER)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  
+  // Relations
+  seniors       User[]  @relation("CaregiverSeniors") // Seniors managed by this caregiver
+  caregivers    User[]  @relation("CaregiverSeniors") // Caregivers managing this senior
+
+  checkIns      CheckIn[]
+
+  @@map("users")
+}
+
+model CheckIn {
+  id        Int           @id @default(autoincrement())
+  status    CheckInStatus @default(PENDING)
+  createdAt DateTime      @default(now())
+  
+  userId    String
+  user      User          @relation(fields: [userId], references: [id])
+
+  @@map("check_ins")
+}

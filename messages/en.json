@@ -49,5 +49,25 @@
     "contactUs": "Contact us",
     "copyright": "© {year} Lever Du? All rights reserved.",
     "backHome": "Back to Home"
+  },
+  "Dashboard": {
+    "title": "Caregiver Dashboard",
+    "mySeniors": "My Seniors",
+    "status": "Status",
+    "lastCheckIn": "Last Check-in",
+    "statusCheckedIn": "Checked In",
+    "statusMissed": "No Response",
+    "statusPending": "Waiting",
+    "addSenior": "Add Senior",
+    "viewDetails": "View Details"
+  },
+  "SeniorCheckIn": {
+    "title": "Check In",
+    "greeting": "Hi, {name}!",
+    "question": "Are you okay today?",
+    "button": "Yes, I'm okay",
+    "confirmed": "Thank you! Have a nice day.",
+    "loading": "Registering...",
+    "error": "Something went wrong. Please try again."
   }
 }
